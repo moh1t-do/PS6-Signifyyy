@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.signUpButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userEmail, userPassword;
-                EditText email =  findViewById(R.id.editTextTextEmailAddress);
-                EditText password = findViewById(R.id.editTextTextPassword);
+                EditText email =  findViewById(R.id.userEmail);
+                EditText password = findViewById(R.id.userPassword);
 
                 userEmail = email.getText().toString();
                 userPassword = password.getText().toString();

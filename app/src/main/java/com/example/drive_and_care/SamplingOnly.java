@@ -25,26 +25,23 @@ import java.util.List;
 
 public class SamplingOnly extends AppCompatActivity {
 
-    TextView tv_lat, tv_lon, tv_altitude, tv_accuracy, tv_speed, tv_sensor, tv_updates, tv_address,textView;
-    Switch sw_locationupdates, sw_gps;
+    TextView tv_lat, tv_lon, tv_accuracy, tv_speed, tv_address;
+    Switch sw_gps;
     FusedLocationProviderClient fusedLocationProviderClient;
     LocationRequest locationRequest;
     LocationRequest.Builder builder;
     long speed_score = 0;
     LocationCallback locationCallBack;
-
-    @SuppressLint("MissingInflatedId")
+//    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sampling_only);
         tv_lat = findViewById(R.id.latitude2);
         tv_lon = findViewById(R.id.longitude2);
-//        tv_altitude = findViewById(R.id.);
         tv_accuracy = findViewById(R.id.accuracy2);
         tv_speed = findViewById(R.id.speed2);
         tv_address = findViewById(R.id.address2);
         sw_gps = findViewById(R.id.switch1);
-        textView = findViewById(R.id.textView);
 
         builder = new LocationRequest.Builder(30000)
                 .setMinUpdateIntervalMillis(5000)
@@ -67,39 +64,32 @@ public class SamplingOnly extends AppCompatActivity {
             }
         };
 
+//        startLocationUpdates();
+
+
         sw_gps.setOnClickListener(view -> {
             if (sw_gps.isChecked()) {
                 builder = new LocationRequest.Builder(30000)
                         .setMinUpdateIntervalMillis(5000)
                         .setPriority(Priority.PRIORITY_HIGH_ACCURACY);
                 locationRequest = builder.build();
-                tv_sensor.setText("Using GPS sensors");
             } else {
                 builder = new LocationRequest.Builder(30000)
                         .setMinUpdateIntervalMillis(5000)
                         .setPriority(Priority.PRIORITY_BALANCED_POWER_ACCURACY);
                 locationRequest = builder.build();
-                tv_sensor.setText("Using Towers + WIFI");
             }
-        });
-
-        sw_locationupdates.setOnClickListener(view -> {
-            if (sw_locationupdates.isChecked()) {
-                startLocationUpdates();
-            } else {
-                stopLocationUpdates();
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
             }
+            fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallBack, null);
+            updateGPS();
         });
         updateGPS();
     }
 
     private void startLocationUpdates() {
-        tv_updates.setText("Location is tracked");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallBack, null);
-        updateGPS();
+
     }
 
     @Override
@@ -141,41 +131,8 @@ public class SamplingOnly extends AppCompatActivity {
         tv_lat.setText(String.valueOf(location.getLatitude()));
         tv_lon.setText(String.valueOf(location.getLongitude()));
         tv_accuracy.setText(String.valueOf(location.getAccuracy()));
-        if(location.hasAltitude()){
-            tv_altitude.setText(String.valueOf(location.getAltitude()));
-        }
-        else
-        {
-            tv_altitude.setText("Not available");
-        }
-        if(location.hasSpeed()){
-
-            tv_speed.setText(String.valueOf(location.getSpeed()));
-            if(location.getSpeed()<20.0)
-            {
-                speed_score++;
-            }
-            else if(location.getSpeed() > 20.0)
-            {
-                speed_score += 4;
-            }
-            else if(location.getSpeed() > 40 && location.getSpeed() < 60)
-            {
-                speed_score += 3;
-            }
-            else
-            {
-                speed_score += 2;
-            }
-            textView.setText(Long.toString(speed_score));
-        }
-        else
-        {
-            tv_speed.setText("Not available");
-        }
+        tv_speed.setText(String.valueOf(location.getSpeed()));
         Geocoder geocoder = new Geocoder(this);
-
-
         try{
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
             tv_address.setText(addresses.get(0).getAddressLine(0));

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -39,6 +40,8 @@ public class sign_up extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     int RC_SIGN_IN = 20;
 
+    Spinner gender, vehicle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,8 @@ public class sign_up extends AppCompatActivity {
         name = findViewById(R.id.userName);
         phone = findViewById(R.id.userPhone);
         city = findViewById(R.id.userCity);
+        gender = findViewById(R.id.spinner_dropdown);
+        vehicle = findViewById(R.id.spinner_Vehicle_type);
 
 
         auth =FirebaseAuth.getInstance();
@@ -77,9 +82,11 @@ public class sign_up extends AppCompatActivity {
             public void onClick(View view) {
 
                 Log.d(TAG, "onClick: SignUp clicked");
+//                Log.d(TAG, "onClick: " + gender.getSelectedItem().toString());
                 signUpEmail(email.getText().toString(), password.getText().toString(),
                 name.getText().toString(), phone.getText().toString(),
-                        city.getText().toString());
+                        city.getText().toString(), gender.getSelectedItem().toString(),
+                        vehicle.getSelectedItem().toString());
             }
         });
 
@@ -99,7 +106,8 @@ public class sign_up extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void signUpEmail(String email, String password, String name, String phone, String city) {
+    private void signUpEmail(String email, String password, String name, String phone, String city,
+                             String gender, String vehicle) {
 
 
         // register user with email and password
@@ -113,7 +121,7 @@ public class sign_up extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             // SQLite code:
                             DatabaseHelper db = new DatabaseHelper(sign_up.this);
-                            db.addUser(user.getUid(), name, city, phone);
+                            db.addUser(user.getUid(), name, city, phone, gender, vehicle);
 
                         }else{
                             Log.d(TAG, "FB: Register user with email failed!");
@@ -154,7 +162,8 @@ public class sign_up extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             // SQLite code:
                             DatabaseHelper db = new DatabaseHelper(sign_up.this);
-                            db.addUser(user.getUid(), user.getDisplayName(), city.getText().toString(), phone.getText().toString());
+                            db.addUser(user.getUid(), user.getDisplayName(), city.getText().toString(), phone.getText().toString(),
+                                    gender.getSelectedItem().toString(), vehicle.getSelectedItem().toString());
                             Log.d(TAG, "FB: User registered");
                         }
                         else{

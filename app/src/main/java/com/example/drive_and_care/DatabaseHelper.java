@@ -18,6 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_NAME = "name";
     private static final String COL_CITY = "city";
     public static final String COL_PHONE = "phone";
+    public static final String COL_GENDER = "gender";
+    public static final String COL_VEHICLE = "vehicle";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -31,7 +33,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         " (" + COL_ID + " TEXT PRIMARY KEY, " +
                         COL_NAME + " TEXT, " +
                         COL_CITY + " TEXT, " +
-                        COL_PHONE + " TEXT);";
+                        COL_PHONE + " TEXT, " +
+                        COL_GENDER+ " TEXT, " +
+                        COL_VEHICLE + " TEXT);";
 
 
         sqLiteDatabase.execSQL(query);
@@ -43,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    void addUser(String uid, String userName, String userCity, String userPhone){
+    void addUser(String uid, String userName, String userCity, String userPhone, String userGender, String userVehicle){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -51,6 +55,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_NAME, userName);
         cv.put(COL_CITY, userCity);
         cv.put(COL_PHONE, userPhone);
+        cv.put(COL_GENDER, userGender);
+        cv.put(COL_VEHICLE, userVehicle);
+
         long res = sqLiteDatabase.insert(TABLE_NAME, null, cv);
 
 

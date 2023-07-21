@@ -141,7 +141,6 @@
                         android:layout_width="308dp"
                         android:layout_height="56dp"
                         android:entries="@array/options_array2"
-                        android:hint="@string/email"
                         android:textAppearance="@style/headline"
 
                         app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +181,7 @@
                 android:textColorHint="#AEA8B3" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/loginButton"
                 android:layout_width="326dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

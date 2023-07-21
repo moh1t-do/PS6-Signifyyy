@@ -13,4 +13,19 @@ Or continue with
 </string>
     <string name="or_continue_with">Or continue with</string>
     <string name="rember_me">Remember Me</string>
+
+    <string-array name="options_array">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <!-- Add more items as needed -->
+    </string-array>
+
+    <string-array name="options_array2">
+        <item>Vehicle Type</item>
+        <item>Two Wheeler</item>
+        <item>Four Wheeler</item>
+        <!-- Add more items as needed -->
+    </string-array>
+
 </resources>

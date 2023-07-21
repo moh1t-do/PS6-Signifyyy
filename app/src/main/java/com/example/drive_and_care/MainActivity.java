@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "mtag";
     FirebaseAuth auth;
+    TextView textView;
     GoogleSignInClient googleSignInClient;
     CardView googleSignInButton;
     int RC_SIGN_IN = 20;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -43,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d(TAG, "onClick: Sign In button clicked");
                 googleSignIn();
+            }
+        });
+
+        textView = findViewById(R.id.textView3);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity2();
             }
         });
 
@@ -73,4 +84,10 @@ public class MainActivity extends AppCompatActivity {
     private void firebaseAuth(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
     }
+
+    public void openActivity2(){
+        Intent intent = new Intent(this, sign_up.class);
+        startActivity(intent);
+    }
+
 }

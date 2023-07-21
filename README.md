@@ -1,5 +1,5 @@
 # drive-and-care
-Overview of our application: 
+Overall workflow of our application: 
 1) User Registration:  When a user visits the application for the first time, he/she is required to register with an appropriate username, password and details like age, city and daily activities. User’s consent is taken for accessing their health and driving details. From the next time, user can sign-in with the created username and password/ automatically.
    
 2) Data Collection:  User’s data is collected from accelerometer, gyroscope , GPS , Google Health API and Google Maps. This data is further categorized into two types – one for gamifying fitness and the other one for gamifying driving behavior.

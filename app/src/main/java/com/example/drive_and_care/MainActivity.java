@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.signUpButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

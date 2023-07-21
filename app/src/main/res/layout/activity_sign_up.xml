@@ -181,7 +181,7 @@
                 android:textColorHint="#AEA8B3" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/signUpButton"
                 android:layout_width="326dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     GoogleSignInClient googleSignInClient;
     CardView googleSignInButton;
+    Button loginButton;
     int RC_SIGN_IN = 20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openActivity2();
+            }
+        });
+
+        loginButton = findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userEmail, userPassword;
+                EditText email =  findViewById(R.id.editTextTextEmailAddress);
+                EditText password = findViewById(R.id.editTextTextPassword);
+
+                userEmail = email.getText().toString();
+                userPassword = password.getText().toString();
+                Log.d(TAG, "onClick: Sign button clicked");
+                signInUser(userEmail, userPassword);
             }
         });
 
@@ -106,6 +124,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    private void signInUser(String userEmail, String userPassword) {
+        auth.signInWithEmailAndPassword(userEmail, userPassword)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Log.d(TAG, "onComplete: User logged in with email");
+                        }
+                        else{
+                            Log.d(TAG, "onComplete: User log in with email failed");
+                        }
+                    }
+                });
+    }
 
 }

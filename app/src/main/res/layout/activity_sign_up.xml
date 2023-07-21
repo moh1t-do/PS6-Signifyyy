@@ -249,6 +249,7 @@
 
                     <androidx.cardview.widget.CardView
 
+                        android:id="@+id/googleSignUp"
                         android:layout_width="283dp"
                         android:layout_height="56dp"
                         android:layout_row="0"

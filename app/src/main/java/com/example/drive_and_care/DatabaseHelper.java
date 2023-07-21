@@ -14,7 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "Test.db";
     private static final int DB_VERSION = 1;
     public static final String TABLE_NAME = "user";
-    private static final String COL_ID = "_id";
+    private static final String COL_ID = "id";
     private static final String COL_NAME = "name";
     private static final String COL_CITY = "city";
     public static final String COL_PHONE = "phone";
@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query =
                 "CREATE TABLE " + TABLE_NAME +
-                        " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        " (" + COL_ID + " TEXT PRIMARY KEY, " +
                         COL_NAME + " TEXT, " +
                         COL_CITY + " TEXT, " +
                         COL_PHONE + " TEXT);";
@@ -43,10 +43,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    void addUser(String userName, String userCity, String userPhone){
+    void addUser(String uid, String userName, String userCity, String userPhone){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+        cv.put(COL_ID, uid);
         cv.put(COL_NAME, userName);
         cv.put(COL_CITY, userCity);
         cv.put(COL_PHONE, userPhone);
@@ -54,10 +55,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         if (res  == -1){
-            Log.d(TAG, "addUser: Failed to insert user");
+            Log.d(TAG, "SQL : Failed to insert user");
         }
         else {
-            Log.d(TAG, "addUser: User added success");
+            Log.d(TAG, "SQL : User added success");
         }
     }
 }

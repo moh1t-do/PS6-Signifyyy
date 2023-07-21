@@ -29,4 +29,35 @@ Or continue with
         <!-- Add more items as needed -->
     </string-array>
 
+    <string name="headline_4">
+Driving\nScore
+</string>
+
+    <string name="headline_health_4">
+Health\nScore
+</string>
+
+    <string name="km">
+53.8KM
+</string>
+    <string name="share_get"><![CDATA[Share & Get]]></string>
+
+
+<string name="heart_one">
+Heart
+</string>
+
+    <string name="walk_one">
+Walk
+</string>
+    <string name="calories_one">
+Calories
+</string>
+    <string name="water_one">
+Water
+</string>
+    <string name="sleep_data_one">
+Sleep
+</string>
+
 </resources>

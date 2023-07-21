@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">drive-and-care</string>
+    <string name="headline">Log In</string>
+    <string name="email">Email</string>
+    <string name="email1">Email</string>
+    <string name="password">Password</string>
+
+    <string name="signup">Sign Up</string>
+    <string name="new_user">New User?</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="or_continue">
+Or continue with
+</string>
+    <string name="or_continue_with">Or continue with</string>
+    <string name="rember_me">Remember Me</string>
+
+    <string-array name="options_array">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <!-- Add more items as needed -->
+    </string-array>
+
+    <string-array name="options_array2">
+        <item>Vehicle Type</item>
+        <item>Two Wheeler</item>
+        <item>Four Wheeler</item>
+        <!-- Add more items as needed -->
+    </string-array>
+
 </resources>

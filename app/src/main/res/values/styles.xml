@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="headline">
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="forgot_pass">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="login">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="or_continue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4B576B</item>
+    </style>
+
+
+
+</resources>

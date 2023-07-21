@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,10 +31,14 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     TextView textView;
     GoogleSignInClient googleSignInClient;
-    CardView googleSignInButton;
+    CardView googleSignInButton, googleSignUpButton;
     Button loginButton;
     TextView signUp;
     int RC_SIGN_IN = 20;
+    boolean flag;
+
+    EditText name, phone, city;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 firebaseAuth(account.getIdToken());
                 
             }catch (Exception e){
-                Log.d(TAG, "onActivityResult: Err occured");
+                Log.d(TAG, "FB : " + e.getMessage());
             }
         }
     }
@@ -119,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Log.d(TAG, "onComplete: User signed in");
+                            Log.d(TAG, "FB: User signed in");
                         }
                         else{
-                            Log.d(TAG, "onComplete: User sign in error");
+                            Log.d(TAG, "FB: User sign in error");
                         }
                     }
                 });

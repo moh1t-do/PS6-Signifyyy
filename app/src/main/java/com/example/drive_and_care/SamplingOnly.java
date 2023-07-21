@@ -32,7 +32,7 @@ public class SamplingOnly extends AppCompatActivity {
     LocationRequest.Builder builder;
     long speed_score = 0;
     LocationCallback locationCallBack;
-//    @SuppressLint("MissingInflatedId")
+    //    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sampling_only);

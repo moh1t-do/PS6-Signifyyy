@@ -13,6 +13,7 @@ Or continue with
 </string>
     <string name="or_continue_with">Or continue with</string>
     <string name="rember_me">Remember Me</string>
+    <string name="default_web_client_id" />
 
     <string-array name="options_array">
         <item>Gender</item>

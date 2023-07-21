@@ -28,4 +28,12 @@ Or continue with
         <!-- Add more items as needed -->
     </string-array>
 
+    <string name="headline_4">
+Driving\nScore
+</string>
+
+    <string name="km">
+53.8KM
+</string>
+
 </resources>

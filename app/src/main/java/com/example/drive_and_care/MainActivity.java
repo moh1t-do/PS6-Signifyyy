@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     CardView googleSignInButton;
     Button loginButton;
+    TextView signUp;
     int RC_SIGN_IN = 20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
                 userPassword = password.getText().toString();
                 Log.d(TAG, "onClick: Sign button clicked");
                 signInUser(userEmail, userPassword);
+            }
+        });
+
+        signUp = findViewById(R.id.textView3);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, sign_up.class);
+                startActivity(intent);
             }
         });
 

@@ -33,6 +33,65 @@ public class SamplingOnly extends AppCompatActivity {
     long speed_score = 0;
     LocationCallback locationCallBack;
 
+    @SuppressLint("MissingInflatedId")
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        tv_lat = findViewById(R.id.latitude2);
+        tv_lon = findViewById(R.id.longitude2);
+//        tv_altitude = findViewById(R.id.);
+        tv_accuracy = findViewById(R.id.accuracy2);
+        tv_speed = findViewById(R.id.speed2);
+        tv_address = findViewById(R.id.address2);
+        sw_gps = findViewById(R.id.switch1);
+        textView = findViewById(R.id.textView);
+
+        builder = new LocationRequest.Builder(30000)
+                .setMinUpdateIntervalMillis(5000)
+                .setPriority(Priority.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        locationRequest = builder.build();
+
+        locationCallBack = new LocationCallback() {
+            @Override
+            public void onLocationAvailability(@NonNull LocationAvailability locationAvailability) {
+                super.onLocationAvailability(locationAvailability);
+            }
+
+            @Override
+            public void onLocationResult(@NonNull LocationResult locationResult) {
+                super.onLocationResult(locationResult);
+                Location location = locationResult.getLastLocation();
+                updateUIValues(location);
+
+            }
+        };
+
+        sw_gps.setOnClickListener(view -> {
+            if (sw_gps.isChecked()) {
+                builder = new LocationRequest.Builder(30000)
+                        .setMinUpdateIntervalMillis(5000)
+                        .setPriority(Priority.PRIORITY_HIGH_ACCURACY);
+                locationRequest = builder.build();
+                tv_sensor.setText("Using GPS sensors");
+            } else {
+                builder = new LocationRequest.Builder(30000)
+                        .setMinUpdateIntervalMillis(5000)
+                        .setPriority(Priority.PRIORITY_BALANCED_POWER_ACCURACY);
+                locationRequest = builder.build();
+                tv_sensor.setText("Using Towers + WIFI");
+            }
+        });
+
+        sw_locationupdates.setOnClickListener(view -> {
+            if (sw_locationupdates.isChecked()) {
+                startLocationUpdates();
+            } else {
+                stopLocationUpdates();
+            }
+        });
+        updateGPS();
+    }
 
 
 }

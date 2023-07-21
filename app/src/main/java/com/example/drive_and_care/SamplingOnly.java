@@ -1,6 +1,5 @@
 package com.example.drive_and_care;
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -127,7 +126,6 @@ public class SamplingOnly extends AppCompatActivity {
     }
 
     private void updateUIValues(Location location){
-
         tv_lat.setText(String.valueOf(location.getLatitude()));
         tv_lon.setText(String.valueOf(location.getLongitude()));
         tv_accuracy.setText(String.valueOf(location.getAccuracy()));

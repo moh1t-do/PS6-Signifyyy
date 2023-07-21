@@ -36,5 +36,6 @@ Driving\nScore
     <string name="km">
 53.8KM
 </string>
+    <string name="share_get"><![CDATA[Share & Get]]></string>
 
 </resources>

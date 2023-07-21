@@ -10,15 +10,16 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="340dp"
         android:background="@drawable/rectangle_3"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header"
@@ -77,65 +78,27 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
-                    android:text="Daniela"
+                    android:text="D Anuj"
                     android:textColor="#ffffff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.788"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466"
+                app:srcCompat="@drawable/badge" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="0dp">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/level_1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="24dp"-->
-<!--                android:layout_alignParentLeft="true"-->
-<!--                android:layout_alignParentTop="true"-->
-<!--                android:layout_marginLeft="22dp"-->
-<!--                android:gravity="top"-->
-<!--                android:lineSpacingExtra="-1sp"-->
-<!--                android:text="Reward Coins : "-->
-<!--                android:textAppearance="@style/level_1"-->
-<!--                android:textSize="20sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView8"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="28dp"-->
-<!--                android:text="10"-->
-<!--                android:textColor="#FFC107"-->
-<!--                android:textSize="34sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/imageView5"-->
-<!--                app:layout_constraintHorizontal_bias="0.0"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/level_1"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintVertical_bias="0.0" />-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView5"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_marginRight="30"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:srcCompat="@drawable/badge" />-->
-
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="343dp"
@@ -167,20 +130,6 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3">
 
-                <!--                <TextView-->
-                <!--                    android:id="@+id/textView5"-->
-                <!--                    android:layout_width="44dp"-->
-                <!--                    android:layout_height="15dp"-->
-                <!--                    android:layout_gravity="center"-->
-                <!--                    android:alpha="0.5"-->
-                <!--                    android:gravity="top"-->
-                <!--                    android:text="21 May"-->
-                <!--                    android:textAppearance="@style/may"-->
-                <!--                    android:textColor="#F6F2F2"-->
-                <!--                    android:textColorHighlight="#F1EAEA"-->
-                <!--                    android:textColorHint="#F1E8E8"-->
-                <!--                    android:textColorLink="#FBF3F3"-->
-                <!--                    android:textStyle="bold" />-->
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
@@ -202,7 +151,6 @@
                     android:lineSpacingExtra="-1sp"
                     android:text="Today"
                     android:textAppearance="@style/today" />
-
 
             </LinearLayout>
 
@@ -370,9 +318,66 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="343dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="228dp"
+        android:background="@drawable/share_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/share_get"
+            android:layout_width="125dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-5sp"
+            android:text="@string/share_get"
+            android:textAppearance="@style/share_get"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/get_2x_poin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/get_2x_poin"
+            android:layout_width="174dp"
+            android:layout_height="30dp"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="48dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-3sp"
+            android:text="Get 2x point for every steps, only valid for today"
+            android:textAppearance="@style/get_2x_poin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/get_2x_poin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/share_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

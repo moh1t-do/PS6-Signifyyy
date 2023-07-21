@@ -20,8 +20,7 @@ public class sign_up extends AppCompatActivity {
     public static final String TAG = "mtag";
     FloatingActionButton floatingActionButton;
 
-    EditText editTextTextPersonName, editTextTextEmailAddress, editTextPhone,
-            city, editTextTextPassword;
+    EditText name, email, phone, city, password;
 
     FirebaseAuth auth;
     Button signUpButton;
@@ -46,16 +45,16 @@ public class sign_up extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
-                editTextTextPassword = findViewById(R.id.editTextTextPassword);
-                String userEmail, userPassword, userName, userPhone, userCity;
-                userEmail = editTextTextEmailAddress.getText().toString();
-                userPassword = editTextTextPassword.getText().toString();
-                userName = editTextTextPersonName.getText().toString();
-                userPhone = editTextPhone.getText().toString();
-                userCity = city.getText().toString();
+                email = findViewById(R.id.userEmail);
+                password = findViewById(R.id.userPassword);
+                name = findViewById(R.id.userName);
+                phone = findViewById(R.id.userPhone);
+                city = findViewById(R.id.userCity);
 
-                signUpEmail(userEmail, userPassword);
+                Log.d(TAG, "onClick: SignUp clicked");
+                signUpEmail(email.getText().toString(), password.getText().toString(),
+                name.getText().toString(), phone.getText().toString(),
+                        city.getText().toString());
             }
         });
     }
@@ -66,7 +65,9 @@ public class sign_up extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void signUpEmail(String email, String password) {
+    private void signUpEmail(String email, String password, String name, String phone, String city) {
+
+
         // register user with email and password
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -76,6 +77,8 @@ public class sign_up extends AppCompatActivity {
                             Log.d(TAG, "onComplete: Register user with email sucessfull!");
 
                             // SQLite code:
+                            DatabaseHelper db = new DatabaseHelper(sign_up.this);
+                            db.addUser(name, city, phone);
 
                         }else{
                             Log.d(TAG, "onComplete: Register user with email failed!");

@@ -95,6 +95,10 @@ public class SamplingOnly extends AppCompatActivity {
                 }
             });
         }
+        else
+        {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},99);
+        }
     }
 
 

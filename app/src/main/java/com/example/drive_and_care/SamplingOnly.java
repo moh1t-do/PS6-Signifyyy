@@ -9,6 +9,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationRequest;
 import android.os.Build;
@@ -20,6 +22,9 @@ import android.widget.TextView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.io.IOException;
+import java.util.List;
 
 import DrivingSensors.DrivingSensors;
 
@@ -68,6 +73,7 @@ public class SamplingOnly extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     locationRequest = builder.build();
                 }
+                updateGPS();
             }
         });
     }
@@ -91,7 +97,7 @@ public class SamplingOnly extends AppCompatActivity {
             fusedLocationProviderClient.getLastLocation().addOnSuccessListener((Activity) this, new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
-
+                    updateUIValues(location);
                 }
             });
         }
@@ -101,5 +107,20 @@ public class SamplingOnly extends AppCompatActivity {
         }
     }
 
+    private void updateUIValues(Location location)
+    {
+        longitude.setText(Double.toString(location.getLongitude()));
+        latitude.setText(Double.toString(location.getLatitude()));
+        speed.setText(Double.toString(location.getSpeed()) + " km/h");
+        accuracy.setText(Double.toString(location.getAccuracy()));
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            List<Address> addressList = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+            address.setText(addressList.get(0).getAddressLine(0));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+//        address.setText();
+    }
 
 }

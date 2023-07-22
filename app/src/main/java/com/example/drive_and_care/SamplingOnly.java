@@ -125,7 +125,7 @@ public class SamplingOnly extends AppCompatActivity {
         }
     }
 
-    private void updateUIValues(Location location){
+    public void updateUIValues(Location location){
         tv_lat.setText(String.valueOf(location.getLatitude()));
         tv_lon.setText(String.valueOf(location.getLongitude()));
         tv_accuracy.setText(String.valueOf(location.getAccuracy()));

@@ -2,17 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.BODY_SENSORS" />
 
-=======
->>>>>>> 9fb8112e07014a6754aa0bc8d3a79189477af5e1
 
     <application
         android:allowBackup="true"
@@ -25,29 +24,23 @@
         android:theme="@style/Theme.Driveandcare"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".MainActivity"
-=======
             android:name=".HealthPage"
             android:exported="false" />
         <activity
-            android:name=".HomeScreen"
->>>>>>> 9fb8112e07014a6754aa0bc8d3a79189477af5e1
+            android:name=".FitnessScore"
             android:exported="false" />
         <activity
             android:name=".sign_up"
             android:exported="false" />
-<<<<<<< HEAD
-=======
         <activity
             android:name=".MainActivity"
             android:exported="false" />
->>>>>>> 9fb8112e07014a6754aa0bc8d3a79189477af5e1
+
         <activity
             android:name=".SamplingOnly"
             android:exported="false" />
         <activity
-            android:name=".FitnessScore"
+            android:name=".HomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,15 +5,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.text.DecimalFormat;
+import java.time.Instant;
 
 public class DrivingScoring {
     private final String url = "http://api.openweather.org/data/2.5/weather";
     private final String appid = "";
+
     private String tmp = "";
-    long overallScore = 0;
+    public long overallScore = 0;
     public long REWARDS = 0;
     DecimalFormat df = new DecimalFormat("#.##");
+    boolean newDay = true;
+
+    public void isNewDay() {
+        REWARDS = 0;
+        newDay = false;
+    }
+
     public void getWeatherDetails(View view, String city){
         String tmp = "";
         city = "";
@@ -30,6 +40,7 @@ public class DrivingScoring {
 
     public void totalScore(double speed, double acc, double dec, int weather, int roadType, double distance)
     {
+        newDay = false;
         double recommended;
         if(roadType == 0)
         {
@@ -61,14 +72,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 30
+                    overallScore += 30;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 40
+                    overallScore += 40;
                 }
                 else
                 {
                     //Score += 50
+                    overallScore += 50;
                 }
             }
             else if((speed - recommended < 1) || (recommended - speed < 1))
@@ -76,14 +90,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 36
+                    overallScore += 36;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 48
+                    overallScore += 48;
                 }
                 else
                 {
                     //Score += 60
+                    overallScore += 60;
                 }
             }
         }
@@ -99,14 +116,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 30
+                    overallScore += 30;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 40
+                    overallScore += 40;
                 }
                 else
                 {
                     //Score += 50
+                    overallScore += 50;
                 }
             }
             else if((speed - recommended < 1) || (recommended - speed < 1))
@@ -114,14 +134,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 36
+                    overallScore += 36;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 48
+                    overallScore += 48;
                 }
                 else
                 {
                     //Score += 60
+                    overallScore += 60;
                 }
             }
         }
@@ -137,14 +160,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 30
+                    overallScore += 30;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 40
+                    overallScore += 40;
                 }
                 else
                 {
                     //Score += 50
+                    overallScore += 50;
                 }
             }
             else if((speed - recommended < 1) || (recommended - speed < 1))
@@ -152,14 +178,17 @@ public class DrivingScoring {
                 if(distance > 0 && distance < 10)
                 {
                     //Score += 36
+                    overallScore += 36;
                 }
                 else if(distance > 10 && distance < 50)
                 {
                     //Score += 48
+                    overallScore += 48;
                 }
                 else
                 {
                     //Score += 60
+                    overallScore += 60;
                 }
             }
         }
@@ -167,6 +196,7 @@ public class DrivingScoring {
         if(overallScore > 10000)
         {
             overallScore -= 10000;
+//            Time.from(Instant.now());
             REWARDS++;
         }
     }

@@ -37,7 +37,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginVertical="15dp"
                 android:layout_marginStart="44dp"
-                android:background="@drawable/header_ellipse_base"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -187,7 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
-                    android:text="/15000"
+                    android:text="/10000"
                     android:textAppearance="@style/steps"
                     android:textColorHighlight="#F1E8E8"
                     android:textColorHint="#EFEDED"
@@ -253,7 +252,7 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Distance"
+                    android:text="Current speed"
                     android:textColor="#ffffff"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -263,7 +262,7 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Traveled"
+                    android:text="Achieved"
                     android:textColor="#ffffff"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -322,6 +321,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="343dp"
         android:layout_height="125dp"
         android:layout_marginTop="20dp"
@@ -378,5 +378,15 @@
             app:srcCompat="@drawable/share_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

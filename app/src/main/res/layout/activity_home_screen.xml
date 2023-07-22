@@ -37,10 +37,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginVertical="15dp"
                 android:layout_marginStart="44dp"
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c89bd461bf5dbb0f5f9d99b195b27df2f722db2
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -384,7 +380,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -431,7 +426,6 @@
             android:backgroundTint="#28333F"
             app:srcCompat="@drawable/user" />
     </LinearLayout>
-=======
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
@@ -441,6 +435,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
->>>>>>> 3c89bd461bf5dbb0f5f9d99b195b27df2f722db2
 
 </androidx.constraintlayout.widget.ConstraintLayout>

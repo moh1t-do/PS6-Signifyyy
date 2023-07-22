@@ -24,7 +24,7 @@
             android:name=".HealthPage"
             android:exported="false" />
         <activity
-            android:name=".HomeScreen"
+            android:name=".SamplingOnly"
             android:exported="false" />
         <activity
             android:name=".sign_up"
@@ -33,7 +33,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SamplingOnly"
+            android:name=".HomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

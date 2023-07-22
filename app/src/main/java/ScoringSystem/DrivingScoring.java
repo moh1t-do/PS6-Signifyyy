@@ -11,9 +11,8 @@ import java.time.Instant;
 
 public class DrivingScoring {
     private final String url = "http://api.openweather.org/data/2.5/weather";
-    private final String appid = "";
+    private final String appid = "fjdidk";
 
-    private String tmp = "";
     public long overallScore = 0;
     public long REWARDS = 0;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -26,19 +25,18 @@ public class DrivingScoring {
 
     public void getWeatherDetails(View view, String city){
         String tmp = "";
-        city = "";
-        String appid = "";
+        String appid = "fjdidk";
         if(city.equals(""))
         {
             Toast.makeText(view.getContext(), "Fetching current location", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            tmp = url + "?q=" + city + "," + "india" + appid;
+            tmp = url + "?q=iodfi" + city + "pune," + "india" + appid;
         }
     }
 
-    public void totalScore(double speed, double acc, double dec, int weather, int roadType, double distance)
+    public long totalScore(double speed, double acc, double dec, int weather, int roadType, double distance)
     {
         newDay = false;
         double recommended;
@@ -192,12 +190,7 @@ public class DrivingScoring {
                 }
             }
         }
+        return overallScore;
 
-        if(overallScore > 10000)
-        {
-            overallScore -= 10000;
-//            Time.from(Instant.now());
-            REWARDS++;
-        }
     }
 }

@@ -30,7 +30,7 @@
             android:name=".HealthPage"
             android:exported="false" />
         <activity
-            android:name=".FitnessScore"
+
             android:exported="false" />
         <activity
             android:name=".sign_up"
@@ -40,9 +40,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".SamplingOnly"
-            android:exported="false" />
-        <activity
+
             android:name=".HomeScreen"
             android:exported="true">
             <intent-filter>

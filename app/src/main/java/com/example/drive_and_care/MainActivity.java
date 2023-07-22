@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.d(TAG, "FB: User signed in");
+                            Intent intent = new Intent(MainActivity.this, HomeScreen.class);
+                            startActivity(intent);
                         }
                         else{
                             Log.d(TAG, "FB: User sign in error");
@@ -145,12 +147,23 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.d(TAG, "onComplete: User logged in with email");
+                            Intent intent = new Intent(MainActivity.this, HomeScreen.class);
+                            startActivity(intent);
                         }
                         else{
                             Log.d(TAG, "onComplete: User log in with email failed");
                         }
                     }
                 });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() !=null){
+            Intent intent = new Intent(MainActivity.this, HomeScreen.class);
+            startActivity(intent);
+        }
     }
 
 }

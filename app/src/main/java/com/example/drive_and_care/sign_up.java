@@ -122,6 +122,8 @@ public class sign_up extends AppCompatActivity {
                             // SQLite code:
                             DatabaseHelper db = new DatabaseHelper(sign_up.this);
                             db.addUser(user.getUid(), name, city, phone, gender, vehicle);
+                            Intent intent = new Intent(sign_up.this, HomeScreen.class);
+                            startActivity(intent);
 
                         }else{
                             Log.d(TAG, "FB: Register user with email failed!");
@@ -165,6 +167,8 @@ public class sign_up extends AppCompatActivity {
                             db.addUser(user.getUid(), user.getDisplayName(), city.getText().toString(), phone.getText().toString(),
                                     gender.getSelectedItem().toString(), vehicle.getSelectedItem().toString());
                             Log.d(TAG, "FB: User registered");
+                            Intent intent = new Intent(sign_up.this, HomeScreen.class);
+                            startActivity(intent);
                         }
                         else{
                             Log.d(TAG, "FB: User register error");
@@ -173,4 +177,12 @@ public class sign_up extends AppCompatActivity {
                 });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() !=null){
+            Intent intent = new Intent(sign_up.this, HomeScreen.class);
+            startActivity(intent);
+        }
+    }
 }

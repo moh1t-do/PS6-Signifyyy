@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Driveandcare"
         tools:targetApi="31">
         <activity
+            android:name=".RewardPage"
+            android:exported="false" />
+        <activity
             android:name=".HealthPage"
             android:exported="false" />
         <activity

@@ -84,7 +84,7 @@ public class sign_up extends AppCompatActivity {
                 Log.d(TAG, "onClick: SignUp clicked");
 //                Log.d(TAG, "onClick: " + gender.getSelectedItem().toString());
                 signUpEmail(email.getText().toString(), password.getText().toString(),
-                name.getText().toString(), phone.getText().toString(),
+                        name.getText().toString(), phone.getText().toString(),
                         city.getText().toString(), gender.getSelectedItem().toString(),
                         vehicle.getSelectedItem().toString());
             }

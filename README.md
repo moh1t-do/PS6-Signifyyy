@@ -18,4 +18,11 @@ Overall workflow of our application:
    
 5) Incentivization System:  Based on the overall driving and fitness scores , users will be given discounts on vehicle insurances   , health insurances and Bajaj products. Certain customers with good records would also be given free trial of Bajaj products for a certain time duration.
 
-
+## Collaborators 🤖
+| Name      | GitHub Profile     |
+| :------------- | :----------: |
+|  D Anuj Kumar  | [GitHub](https://github.com/danujkumar) |
+|  Prerna Singh | [GitHub]( https://github.com/prernasngh) |
+|  Harsh Dewangan  | [GitHub](https://github.com/harshdew02) |
+|  Bhupendra Kumar Gehlot | [GitHub](https://github.com/Bhupendra-Gehlot1) |
+|  Mohit Doraiburu  | [GitHub](https://github.com/moh1t-do) |
